@@ -1,0 +1,55 @@
+.inputHeading,
+.inputContainer,
+.outputContainer {
+  margin: 15px;
+}
+
+.algoRadioContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.individualRadioContainer {
+  margin-right: 14px;
+}
+
+.inputHeading {
+
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 28%;
+    box-shadow: 0 0 5px 1px #8e44ad;
+}
+
+.individualInput {
+    margin: 6px 0;
+}
+
+.textBox {
+    padding: 4px;
+    margin-right: 5px;
+}
+
+.label {
+    display: block;
+}
+
+.btnAndTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outputContainer {
+
+}

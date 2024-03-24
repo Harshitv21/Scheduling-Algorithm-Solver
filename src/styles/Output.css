@@ -1,0 +1,28 @@
+.tableContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.tableContainer table {
+  flex: 1;
+  width: 100%;
+  margin: 20px;
+  box-shadow: 0 0 5px 1px #44a8ad;
+}
+
+.tableContainer table,
+.tableContainer th,
+.tableContainer td {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.tableContainer th,
+.tableContainer td {
+  padding: 8px;
+  text-align: left;
+}
+
+.tableContainer th {
+  background-color: rgb(187, 181, 181);
+}
