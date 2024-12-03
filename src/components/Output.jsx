@@ -5,7 +5,7 @@ Reference -
 | Job |	Arrival Time |	Burst Time |	Finish Time |	Turnaround Time |	Waiting Time |
 */
 
-const Output = ({sortedJobs}) => {
+const Output = ({ sortedJobs }) => {
   return (
     <div className="tableContainer">
       <table>
@@ -25,6 +25,9 @@ const Output = ({sortedJobs}) => {
               <td>{item.jobIndex}</td>
               <td>{item.arrivalTime}</td>
               <td>{item.burstTime}</td>
+              <td>{item.finishTime}</td>
+              <td>{item.turnaroundTime}</td>
+              <td>{item.waitingTime}</td>
             </tr>
           ))}
         </tbody>
@@ -32,4 +35,5 @@ const Output = ({sortedJobs}) => {
     </div>
   );
 };
+
 export default Output;

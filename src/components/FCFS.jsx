@@ -14,14 +14,31 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
       arrivalTime: item,
       burstTime: burstTimeArray[index],
     }));
-    const sortedJobsCopy = [...jobs];
 
-    sortedJobsCopy.sort(
+    // Sort jobs by arrival time (and maintain original order for tie)
+    const sortedJobsCopy = [...jobs].sort(
       (a, b) =>
-        a.arrivalTime - b.arrivalTime || a.originalIndex - b.originalIndex
+        a.arrivalTime - b.arrivalTime || a.jobIndex.localeCompare(b.jobIndex)
     );
 
-    setSortedJobs(sortedJobsCopy);
+    let currentTime = 0;
+    const finalJobs = sortedJobsCopy.map((job) => {
+      const startTime = Math.max(currentTime, job.arrivalTime);
+      const finishTime = startTime + job.burstTime;
+      const turnaroundTime = finishTime - job.arrivalTime;
+      const waitingTime = turnaroundTime - job.burstTime;
+
+      currentTime = finishTime; // Update current time to the finish time of this job
+
+      return {
+        ...job,
+        finishTime,
+        turnaroundTime,
+        waitingTime,
+      };
+    });
+
+    setSortedJobs(finalJobs);
     setShowOutput(true);
   };
 
