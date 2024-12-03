@@ -1,5 +1,10 @@
 import "../styles/Output.css";
 
+/*
+Reference -
+| Job |	Arrival Time |	Burst Time |	Finish Time |	Turnaround Time |	Waiting Time |
+*/
+
 const Output = ({sortedJobs}) => {
   return (
     <div className="tableContainer">
