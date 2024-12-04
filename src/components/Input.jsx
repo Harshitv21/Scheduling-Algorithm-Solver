@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../styles/Input.css";
 import { FCFS } from "./FCFS";
-import SJF from "./SJF";
-import SRTF from "./SRTF";
-import RR from "./RR";
+import { SJF } from "./SJF";
+import { SRTF } from "./SRTF";
+import { RR } from "./RR";
 import { InputBox } from "./InputBox";
 import { IndividualAlgoRadio } from "./IndividualAlgoRadio";
 
