@@ -65,7 +65,7 @@ export const SJF = ({ arrivalArray, burstTimeArray }) => {
         <h3>SJF (Shortest Job First)</h3>
       </div>
 
-      <div className="sample-tc-container">
+      <div>
         <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="7 2 3 6 5" />
       </div>
 
