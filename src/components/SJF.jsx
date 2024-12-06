@@ -1,11 +1,67 @@
+import { useState } from "react";
 import "../styles/SJF.css";
 import DisplayATAndBT from "./DisplayATAndBT";
+import Output from "./Output";
 
-const SJF = ({ arrivalArray, burstTimeArray }) => {
+export const SJF = ({ arrivalArray, burstTimeArray }) => {
+  const [showOutput, setShowOutput] = useState(false);
+  const [sortedJobs, setSortedJobs] = useState([]);
+
+  const solveSJF = () => {
+    console.log("SJF called");
+
+    const jobs = arrivalArray.map((item, index) => ({
+      jobIndex: String.fromCharCode(65 + index),
+      arrivalTime: item,
+      burstTime: burstTimeArray[index],
+    }));
+
+    let time = 0; // Current time
+    const completedJobs = [];
+    const remainingJobs = [...jobs];
+
+    while (remainingJobs.length > 0) {
+      // Filter jobs that have arrived by the current time
+      const availableJobs = remainingJobs.filter(
+        (job) => job.arrivalTime <= time
+      );
+
+      if (availableJobs.length === 0) {
+        // If no jobs are available, move time to the next job's arrival
+        time = Math.min(...remainingJobs.map((job) => job.arrivalTime));
+        continue;
+      }
+
+      // Pick the job with the shortest burst time
+      const nextJob = availableJobs.reduce((shortest, job) =>
+        job.burstTime < shortest.burstTime ? job : shortest
+      );
+
+      // Calculate Finish Time, Turnaround Time, and Waiting Time
+      const finishTime = time + nextJob.burstTime;
+      const turnaroundTime = finishTime - nextJob.arrivalTime;
+      const waitingTime = turnaroundTime - nextJob.burstTime;
+
+      completedJobs.push({
+        ...nextJob,
+        finishTime,
+        turnaroundTime,
+        waitingTime,
+      });
+
+      // Update time and remove the job from the list
+      time = finishTime;
+      remainingJobs.splice(remainingJobs.indexOf(nextJob), 1);
+    }
+
+    setSortedJobs(completedJobs);
+    setShowOutput(true);
+  };
+
   return (
     <div>
       <div>
-        <h3>SJF</h3>
+        <h3>SJF (Shortest Job First)</h3>
       </div>
 
       <DisplayATAndBT
@@ -20,7 +76,11 @@ const SJF = ({ arrivalArray, burstTimeArray }) => {
         burstTimeArray.length >= 1 &&
         arrivalArray.length === burstTimeArray.length ? (
           <div>
-            <button type="button" className="btn btn-success">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={solveSJF}
+            >
               Solve ✅
             </button>
           </div>
@@ -32,7 +92,8 @@ const SJF = ({ arrivalArray, burstTimeArray }) => {
           </div>
         )}
       </div>
+
+      {showOutput && <Output sortedJobs={sortedJobs} />}
     </div>
   );
 };
-export default SJF;
