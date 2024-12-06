@@ -9,7 +9,6 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
   const [sortedJobs, setSortedJobs] = useState([]);
 
   const solveFCFS = () => {
-    console.log("FCFS called");
     const jobs = arrivalArray.map((item, index) => ({
       jobIndex: String.fromCharCode(65 + index),
       arrivalTime: item,
@@ -46,7 +45,7 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
   return (
     <div>
       <div>
-        <h3>FCFS (First Come First Serve)</h3>
+        <h3>First Come First Serve (FCFS)</h3>
       </div>
 
       <div>

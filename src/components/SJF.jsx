@@ -62,7 +62,7 @@ export const SJF = ({ arrivalArray, burstTimeArray }) => {
   return (
     <div>
       <div>
-        <h3>SJF (Shortest Job First)</h3>
+        <h3>Shortest Job First (SJF)</h3>
       </div>
 
       <div>

@@ -22,10 +22,10 @@ export const Input = () => {
 
   const getAlgoLabel = (algo) => {
     const labels = {
-      FCFS: "First Come First Serve",
-      SJF: "Shortest Job First",
-      SRTF: "Shortest Remaining Time First",
-      RR: "Round Robin",
+      FCFS: "First Come First Serve (FCFS)",
+      SJF: "Shortest Job First (SJF)",
+      SRTF: "Shortest Remaining Time First (SRTF)",
+      RR: "Round Robin (RR)",
     };
     return labels[algo];
   };

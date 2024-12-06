@@ -70,7 +70,7 @@ export const SRTF = ({ arrivalArray, burstTimeArray }) => {
   return (
     <div>
       <div>
-        <h3>SRTF</h3>
+        <h3>Shortest Remaining Time First (SRTF)</h3>
       </div>
 
       <div>
