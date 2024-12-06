@@ -1,5 +1,9 @@
-.solveBtnContainer {
+.solve-btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sample-tc-container {
+  background-color: gray;
 }
