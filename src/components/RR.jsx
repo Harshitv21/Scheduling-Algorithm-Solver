@@ -1,7 +1,7 @@
 import "../styles/RR.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 
-const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
+export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
   return (
     <div>
       <div>
@@ -38,4 +38,3 @@ const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
     </div>
   );
 };
-export default RR;

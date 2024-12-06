@@ -1,7 +1,7 @@
 import "../styles/SRTF.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 
-const SRTF = ({ arrivalArray, burstTimeArray }) => {
+export const SRTF = ({ arrivalArray, burstTimeArray }) => {
   return (
     <div>
       <div>
@@ -35,4 +35,3 @@ const SRTF = ({ arrivalArray, burstTimeArray }) => {
     </div>
   );
 };
-export default SRTF;
