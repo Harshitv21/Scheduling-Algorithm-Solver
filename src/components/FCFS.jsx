@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/FCFS.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 import Output from "./Output";
+import { TestCaseAccordion } from "./TestCaseAccordion";
 
 export const FCFS = ({ arrivalArray, burstTimeArray }) => {
   const [showOutput, setShowOutput] = useState(false);
@@ -48,6 +49,10 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
         <h3>FCFS (First Come First Serve)</h3>
       </div>
 
+      <div className="sample-tc-container">
+        <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="3 6 4 5 2" />
+      </div>
+
       <DisplayATAndBT
         arrivalArray={arrivalArray}
         burstTimeArray={burstTimeArray}
@@ -55,7 +60,7 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
         messageBT={"Burst times received,"}
       />
 
-      <div className="solveBtnContainer">
+      <div className="solve-btn-container">
         {arrivalArray.length >= 1 &&
         burstTimeArray.length >= 1 &&
         arrivalArray.length === burstTimeArray.length ? (
