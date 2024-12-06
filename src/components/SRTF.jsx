@@ -1,11 +1,16 @@
 import "../styles/SRTF.css";
 import DisplayATAndBT from "./DisplayATAndBT";
+import { TestCaseAccordion } from "./TestCaseAccordion";
 
 export const SRTF = ({ arrivalArray, burstTimeArray }) => {
   return (
     <div>
       <div>
         <h3>SRTF</h3>
+      </div>
+
+      <div className="sample-tc-container">
+        <TestCaseAccordion arrivalTime="0 1 3 5 6" burstTime="8 4 9 5 2" />
       </div>
 
       <DisplayATAndBT

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/SJF.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 import Output from "./Output";
+import { TestCaseAccordion } from "./TestCaseAccordion";
 
 export const SJF = ({ arrivalArray, burstTimeArray }) => {
   const [showOutput, setShowOutput] = useState(false);
@@ -62,6 +63,10 @@ export const SJF = ({ arrivalArray, burstTimeArray }) => {
     <div>
       <div>
         <h3>SJF (Shortest Job First)</h3>
+      </div>
+
+      <div className="sample-tc-container">
+        <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="7 2 3 6 5" />
       </div>
 
       <DisplayATAndBT
