@@ -1,0 +1,40 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 35%;
+  box-shadow: 0 0 5px 1px #8e44ad;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.add-method-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.add-method-container input {
+    margin-right: 6px;
+}
+
+.individual-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-box {
+  padding: 4px;
+  margin-right: 5px;
+}

@@ -1,4 +1,5 @@
 import DisplayATAndBT from "./DisplayATAndBT";
+import "../styles/InputBox.css";
 
 export const InputBox = ({
   currentInputMethod,
@@ -15,6 +16,28 @@ export const InputBox = ({
     const isIndividual = currentInputMethod === "INDI";
     const maxEntries = 10;
     const maxValue = 99;
+
+    const validateAndAdd = (parsedNumbersArray, type) => {
+      if (parsedNumbersArray.some((num) => num > maxValue)) {
+        alert(`Please enter numbers between 0-${maxValue} only.`);
+        return;
+      }
+
+      if (
+        parsedNumbersArray.length +
+          (type === "AR" ? arrivalArray.length : burstTimeArray.length) >
+        maxEntries
+      ) {
+        alert(`Max ${maxEntries} entries allowed.`);
+        return;
+      }
+
+      const newArray =
+        type === "AR"
+          ? [...arrivalArray, ...parsedNumbersArray]
+          : [...burstTimeArray, ...parsedNumbersArray];
+      type === "AR" ? setArrivalArray(newArray) : setBurstTimeArray(newArray);
+    };
 
     if (isIndividual) {
       const parsedTime = parseInt(newTime.trim() || 0, 10);
@@ -38,10 +61,7 @@ export const InputBox = ({
         .split(" ")
         .map((num) => num.trim())
         .filter((num) => /^\d+$/.test(num));
-      if (
-        numbersArray.length === 0 ||
-        newTime.split(" ").length !== numbersArray.length
-      ) {
+      if (numbersArray.length === 0) {
         alert(
           `Please enter valid numbers only (0-${maxValue}), separated by spaces.`
         );
@@ -49,25 +69,7 @@ export const InputBox = ({
       }
 
       const parsedNumbersArray = numbersArray.map((num) => parseInt(num, 10));
-      if (parsedNumbersArray.some((num) => num > maxValue)) {
-        alert(`Please enter numbers between 0-${maxValue} only.`);
-        return;
-      }
-
-      if (
-        parsedNumbersArray.length +
-          (type === "AR" ? arrivalArray.length : burstTimeArray.length) >
-        maxEntries
-      ) {
-        alert(`Max ${maxEntries} entries allowed.`);
-        return;
-      }
-
-      const newArray =
-        type === "AR"
-          ? [...arrivalArray, ...parsedNumbersArray]
-          : [...burstTimeArray, ...parsedNumbersArray];
-      type === "AR" ? setArrivalArray(newArray) : setBurstTimeArray(newArray);
+      validateAndAdd(parsedNumbersArray, type);
     }
   };
 
@@ -83,45 +85,41 @@ export const InputBox = ({
   };
 
   return (
-    <div className="inputContainer">
-      {currentInputMethod === "INDI" && (
-        <p>
-          <b>Max no of processes:</b> 10
-        </p>
-      )}
+    <div className="input-container">
+      <p>
+        <b>Max no of processes:</b> 10
+      </p>
 
-      <div>
-        <input
-          className="individualInput"
-          type="radio"
-          name="inputMethodRadio"
-          id="radioValueIndividual"
-          value="INDI"
-          onChange={() => setCurrentInputMethod("INDI")}
-        />
-        <label className="form-check-label" htmlFor="radioValueIndividual">
-          Add individually
-        </label>
+      <div className="add-method-container">
+        <div>
+          <input
+            type="radio"
+            name="inputMethodRadio"
+            id="radioValueIndividual"
+            value="INDI"
+            onChange={() => setCurrentInputMethod("INDI")}
+          />
+          <label htmlFor="radioValueIndividual">Add individually</label>
+        </div>
 
-        <input
-          className="individualInput"
-          type="radio"
-          name="inputMethodRadio"
-          id="radioValueBulk"
-          value="BULK"
-          onChange={() => setCurrentInputMethod("BULK")}
-          defaultChecked
-        />
-        <label className="form-check-label" htmlFor="radioValueBulk">
-          Add in bulk
-        </label>
+        <div>
+          <input
+            type="radio"
+            name="inputMethodRadio"
+            id="radioValueBulk"
+            value="BULK"
+            onChange={() => setCurrentInputMethod("BULK")}
+            defaultChecked
+          />
+          <label htmlFor="radioValueBulk">Add in bulk</label>
+        </div>
       </div>
 
       {currentInputMethod === "BULK"
         ? ["AR", "BT"].map((type) => (
             <div key={type}>
               <label htmlFor={`Bulk${type}`} className="form-label">
-                {type === "AR" ? "Arrival times" : "Burst times"},
+                {type === "AR" ? "Arrival times" : "Burst times"}
               </label>
               <input
                 type="text"
@@ -129,50 +127,52 @@ export const InputBox = ({
                 id={`Bulk${type}`}
                 placeholder="Like, 0 1 2 3"
               />
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() =>
-                  handleAddTime(
-                    type,
-                    document.querySelector(`#Bulk${type}`).value
-                  )
-                }
-              >
-                Add
-              </button>
-              <button
-                type="button"
-                className="btn btn-warning"
-                onClick={() => handleClear(type)}
-              >
-                Clear
-              </button>
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => handleClear(type, true)}
-              >
-                Clear All
-              </button>
+              <div className="button-container">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() =>
+                    handleAddTime(
+                      type,
+                      document.querySelector(`#Bulk${type}`).value
+                    )
+                  }
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-warning"
+                  onClick={() => handleClear(type)}
+                >
+                  Clear
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleClear(type, true)}
+                >
+                  Clear All
+                </button>
+              </div>
             </div>
           ))
         : ["AR", "BT"].map((type) => (
-            <div className="individualInput" key={type}>
-              <div className="label">
-                <label htmlFor={type}>
-                  {type === "AR" ? "Arrival times" : "Burst times"},
+            <div className="individual-input" key={type}>
+              <div>
+                <label htmlFor={type} className="form-label">
+                  {type === "AR" ? "Arrival times" : "Burst times"}
                 </label>
-              </div>
-              <div className="btnAndTextContainer">
                 <input
-                  className="textBox"
+                  className="text-box"
                   type="number"
                   id={type}
                   min={0}
                   max={99}
                   defaultValue={0}
                 />
+              </div>
+              <div className="button-container">
                 {(type === "AR" ? arrivalArray : burstTimeArray).length < 10 ? (
                   <button
                     type="button"
@@ -191,34 +191,32 @@ export const InputBox = ({
                     Max reached
                   </button>
                 )}
-                <div>
-                  <button
-                    type="button"
-                    className="btn btn-warning"
-                    onClick={() => handleClear(type)}
-                  >
-                    Clear
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() => handleClear(type, true)}
-                  >
-                    Clear All
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-warning"
+                  onClick={() => handleClear(type)}
+                >
+                  Clear
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleClear(type, true)}
+                >
+                  Clear All
+                </button>
               </div>
             </div>
           ))}
 
       {currentAlgo === "RR" && (
-        <div className="individualInput">
-          <div className="label">
-            <label htmlFor="TC">Time Quantum,</label>
+        <div className="individual-input">
+          <div>
+            <label htmlFor="TC">Time Quantum</label>
           </div>
-          <div className="btnAndTextContainer">
+          <div className="btn-and-text-container">
             <input
-              className="textBox"
+              className="text-box"
               type="number"
               id="TC"
               min={0}

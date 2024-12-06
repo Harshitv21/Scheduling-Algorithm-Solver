@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TestCaseBlock from "./TestCaseBlock";
-import "../styles/TestCaseAccordian.css";
+import "../styles/TestCaseAccordion.css";
 
 export const TestCaseAccordion = ({ arrivalTime, burstTime, timeQuantum }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,22 +16,24 @@ export const TestCaseAccordion = ({ arrivalTime, burstTime, timeQuantum }) => {
         <span>{isOpen ? "▲" : "▼"}</span>
       </div>
 
-      {isOpen && (
-        <div className="accordion-content">
+      <div className={`accordion-content ${isOpen ? "open" : ""}`}>
+        <div>
           <div>
             <p>Arrival time</p>
             <TestCaseBlock passedTC={arrivalTime} />
+          </div>
+          <div>
             <p>Burst time</p>
             <TestCaseBlock passedTC={burstTime} />
-            {timeQuantum && (
-              <>
-                <p>Time Quantum</p>
-                <TestCaseBlock passedTC={timeQuantum} />
-              </>
-            )}
           </div>
+          {timeQuantum && (
+            <div>
+              <p>Time Quantum</p>
+              <TestCaseBlock passedTC={timeQuantum} />
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
