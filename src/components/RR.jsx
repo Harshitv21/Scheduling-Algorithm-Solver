@@ -61,7 +61,7 @@ export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
       const turnaroundTime = completionTime[index] - arrivalTime;
       const waitingTime = turnaroundTime - burstTimeArray[index];
       return {
-        job: String.fromCharCode(65 + index), // A, B, C...
+        jobIndex: String.fromCharCode(65 + index), // A, B, C...
         arrivalTime,
         burstTime: burstTimeArray[index],
         finishTime: completionTime[index],
@@ -80,7 +80,7 @@ export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
         <h3>Round Robin (RR)</h3>
       </div>
 
-      <div className="sample-tc-container">
+      <div>
         <TestCaseAccordion
           arrivalTime="0 1 2 3 4"
           burstTime="5 4 3 2 6"
