@@ -1,11 +1,20 @@
 import "../styles/RR.css";
 import DisplayATAndBT from "./DisplayATAndBT";
+import { TestCaseAccordion } from "./TestCaseAccordion";
 
 export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
   return (
     <div>
       <div>
         <h3>RR</h3>
+      </div>
+
+      <div className="sample-tc-container">
+        <TestCaseAccordion
+          arrivalTime="0 1 2 3 4"
+          burstTime="5 4 3 2 6"
+          timeQuantum="2"
+        />
       </div>
 
       <DisplayATAndBT

@@ -2,7 +2,7 @@ import { useState } from "react";
 import TestCaseBlock from "./TestCaseBlock";
 import "../styles/TestCaseAccordian.css";
 
-export const TestCaseAccordion = ({ arrivalTime, burstTime }) => {
+export const TestCaseAccordion = ({ arrivalTime, burstTime, timeQuantum }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -23,6 +23,12 @@ export const TestCaseAccordion = ({ arrivalTime, burstTime }) => {
             <TestCaseBlock passedTC={arrivalTime} />
             <p>Burst time</p>
             <TestCaseBlock passedTC={burstTime} />
+            {timeQuantum && (
+              <>
+                <p>Time Quantum</p>
+                <TestCaseBlock passedTC={timeQuantum} />
+              </>
+            )}
           </div>
         </div>
       )}
