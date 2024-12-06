@@ -49,7 +49,7 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
         <h3>FCFS (First Come First Serve)</h3>
       </div>
 
-      <div className="sample-tc-container">
+      <div>
         <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="3 6 4 5 2" />
       </div>
 
