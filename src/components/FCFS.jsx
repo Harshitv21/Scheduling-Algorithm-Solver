@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "../styles/FCFS.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 import Output from "./Output";
 import { TestCaseAccordion } from "./TestCaseAccordion";
+import { SolveBtnContainer } from "./SolveBtnContainer";
 
 export const FCFS = ({ arrivalArray, burstTimeArray }) => {
   const [showOutput, setShowOutput] = useState(false);
@@ -59,27 +59,11 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
         messageBT={"Burst times received,"}
       />
 
-      <div className="solve-btn-container">
-        {arrivalArray.length >= 1 &&
-        burstTimeArray.length >= 1 &&
-        arrivalArray.length === burstTimeArray.length ? (
-          <div>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={solveFCFS}
-            >
-              Solve ✅
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button type="button" className="btn btn-danger" disabled={true}>
-              No of AT & BT does not match OR null ⚠️
-            </button>
-          </div>
-        )}
-      </div>
+      <SolveBtnContainer
+        arrivalArray={arrivalArray}
+        burstTimeArray={burstTimeArray}
+        onSolve={solveFCFS}
+      />
 
       {showOutput && <Output sortedJobs={sortedJobs} />}
     </div>

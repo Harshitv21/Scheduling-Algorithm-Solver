@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../styles/SRTF.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 import { TestCaseAccordion } from "./TestCaseAccordion";
+import { SolveBtnContainer } from "./SolveBtnContainer";
 import Output from "./Output";
 
 export const SRTF = ({ arrivalArray, burstTimeArray }) => {
@@ -84,27 +84,11 @@ export const SRTF = ({ arrivalArray, burstTimeArray }) => {
         messageBT={"Burst times received,"}
       />
 
-      <div className="solveBtnContainer">
-        {arrivalArray.length >= 1 &&
-        burstTimeArray.length >= 1 &&
-        arrivalArray.length === burstTimeArray.length ? (
-          <div>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={solveSRTF}
-            >
-              Solve ✅
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button type="button" className="btn btn-danger" disabled={true}>
-              No of AT & BT does not match OR null ⚠️
-            </button>
-          </div>
-        )}
-      </div>
+      <SolveBtnContainer
+        arrivalArray={arrivalArray}
+        burstTimeArray={burstTimeArray}
+        onSolve={solveSRTF}
+      />
 
       {showOutput && <Output sortedJobs={sortedJobs} />}
     </div>

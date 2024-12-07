@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../styles/RR.css";
 import DisplayATAndBT from "./DisplayATAndBT";
 import { TestCaseAccordion } from "./TestCaseAccordion";
+import { SolveBtnContainer } from "./SolveBtnContainer";
 import Output from "./Output";
 
 export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
@@ -98,24 +98,12 @@ export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
         Time Quantum: <span>{timeQuantum}</span>
       </div>
 
-      <div className="solveBtnContainer">
-        {arrivalArray.length >= 1 &&
-        burstTimeArray.length >= 1 &&
-        arrivalArray.length === burstTimeArray.length &&
-        timeQuantum ? (
-          <div>
-            <button type="button" className="btn btn-success" onClick={solveRR}>
-              Solve ✅
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button type="button" className="btn btn-danger" disabled={true}>
-              No of AT & BT does not match OR null ⚠️
-            </button>
-          </div>
-        )}
-      </div>
+      <SolveBtnContainer
+        arrivalArray={arrivalArray}
+        burstTimeArray={burstTimeArray}
+        timeQuantum={timeQuantum}
+        onSolve={solveRR}
+      />
 
       {showOutput && <Output sortedJobs={scheduledJobs} />}
     </div>
