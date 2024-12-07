@@ -88,13 +88,13 @@ export const RR = ({ arrivalArray, burstTimeArray, timeQuantum }) => {
         />
       </div>
 
-      <DisplayATAndBT
-        arrivalArray={arrivalArray}
-        burstTimeArray={burstTimeArray}
-        messageAT={"Arrival times received,"}
-        messageBT={"Burst times received,"}
-      />
-      <div>
+      <div style={{ marginLeft: "10px" }}>
+        <DisplayATAndBT
+          arrivalArray={arrivalArray}
+          burstTimeArray={burstTimeArray}
+          messageAT={"Arrival times received,"}
+          messageBT={"Burst times received,"}
+        />
         Time Quantum: <span>{timeQuantum}</span>
       </div>
 

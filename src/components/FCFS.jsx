@@ -52,12 +52,14 @@ export const FCFS = ({ arrivalArray, burstTimeArray }) => {
         <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="3 6 4 5 2" />
       </div>
 
-      <DisplayATAndBT
-        arrivalArray={arrivalArray}
-        burstTimeArray={burstTimeArray}
-        messageAT={"Arrival times received,"}
-        messageBT={"Burst times received,"}
-      />
+      <div style={{ marginLeft: "10px" }}>
+        <DisplayATAndBT
+          arrivalArray={arrivalArray}
+          burstTimeArray={burstTimeArray}
+          messageAT={"Arrival times received,"}
+          messageBT={"Burst times received,"}
+        />
+      </div>
 
       <SolveBtnContainer
         arrivalArray={arrivalArray}

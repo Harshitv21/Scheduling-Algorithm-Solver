@@ -77,12 +77,14 @@ export const SRTF = ({ arrivalArray, burstTimeArray }) => {
         <TestCaseAccordion arrivalTime="0 1 3 5 6" burstTime="8 4 9 5 2" />
       </div>
 
-      <DisplayATAndBT
-        arrivalArray={arrivalArray}
-        burstTimeArray={burstTimeArray}
-        messageAT={"Arrival times received,"}
-        messageBT={"Burst times received,"}
-      />
+      <div style={{ marginLeft: "10px" }}>
+        <DisplayATAndBT
+          arrivalArray={arrivalArray}
+          burstTimeArray={burstTimeArray}
+          messageAT={"Arrival times received,"}
+          messageBT={"Burst times received,"}
+        />
+      </div>
 
       <SolveBtnContainer
         arrivalArray={arrivalArray}

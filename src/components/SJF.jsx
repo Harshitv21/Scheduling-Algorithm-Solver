@@ -69,12 +69,14 @@ export const SJF = ({ arrivalArray, burstTimeArray }) => {
         <TestCaseAccordion arrivalTime="0 2 4 6 8" burstTime="7 2 3 6 5" />
       </div>
 
-      <DisplayATAndBT
-        arrivalArray={arrivalArray}
-        burstTimeArray={burstTimeArray}
-        messageAT={"Arrival times received,"}
-        messageBT={"Burst times received,"}
-      />
+      <div style={{ marginLeft: "10px" }}>
+        <DisplayATAndBT
+          arrivalArray={arrivalArray}
+          burstTimeArray={burstTimeArray}
+          messageAT={"Arrival times received,"}
+          messageBT={"Burst times received,"}
+        />
+      </div>
 
       <SolveBtnContainer
         arrivalArray={arrivalArray}
