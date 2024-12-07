@@ -4,17 +4,17 @@
   width: 100%;
   position: relative;
   background-color: #1e1e1e;
-  padding: 0.5rem; /* Reduced padding */
+  padding: 0.5rem;
   border-radius: 4px;
   box-sizing: border-box;
-  max-width: 380px; /* Reduced max width */
-  margin-top: 0.5rem; /* Reduced margin between code blocks */
+  max-width: 380px;
+  margin-top: 0.5rem;
 }
 
 .copy-btn {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 24px;
+  right: 14px;
   background: none;
   border: none;
   cursor: pointer;

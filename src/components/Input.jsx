@@ -32,11 +32,11 @@ export const Input = () => {
 
   return (
     <>
-      <div className="inputHeading">
+      <div className="input-heading">
         <h3>Select your algorithm 🤔</h3>
       </div>
 
-      <div className="algoRadioContainer">
+      <div className="algo-radio-container">
         {algoOptions.map((algo) => (
           <IndividualAlgoRadio
             key={algo}
@@ -62,7 +62,7 @@ export const Input = () => {
         setTimeQuantum={setTimeQuantum}
       />
 
-      <div className="resultContainer">
+      <div className="result-container">
         {currentAlgo === "FCFS" && <FCFS {...algorithmProps} />}
         {currentAlgo === "SJF" && <SJF {...algorithmProps} />}
         {currentAlgo === "SRTF" && <SRTF {...algorithmProps} />}

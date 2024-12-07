@@ -1,8 +1,6 @@
-// import React from "react";
-
 export const IndividualAlgoRadio = ({ id, value, label, onChange, defaultChecked }) => {
   return (
-    <div className="individualRadioContainer">
+    <div className="individual-radio-container">
       <div className="form-check">
         <input
           className="form-check-input"

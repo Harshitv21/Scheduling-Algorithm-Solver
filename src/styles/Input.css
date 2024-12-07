@@ -1,26 +1,26 @@
-.inputHeading,
+.input-heading,
 .outputContainer {
   margin: 15px;
 }
 
-.algoRadioContainer {
+.algo-radio-container {
   display: flex;
   flex-direction: row;
   margin: 15px;
 }
 
-.individualRadioContainer {
+.individual-radio-container {
   margin-right: 14px;
 }
 
-.inputHeading {
+.result-container {
+  margin-top: 16px;
+}
 
+.result-container h3 {
+  margin-left: 10px;
 }
 
 .label {
     display: block;
-}
-
-.outputContainer {
-
 }
