@@ -135,7 +135,7 @@ export const InputBox = ({
               <div className="button-container">
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-primary input-box-btn"
                   onClick={() =>
                     handleAddTime(
                       type,
@@ -153,7 +153,7 @@ export const InputBox = ({
                 </button>
                 <button
                   type="button"
-                  className="btn btn-warning"
+                  className="btn btn-warning input-box-btn"
                   onClick={() => handleClear(type)}
                 >
                   Clear
@@ -166,7 +166,7 @@ export const InputBox = ({
                 </button>
                 <button
                   type="button"
-                  className="btn btn-danger"
+                  className="btn btn-danger input-box-btn"
                   onClick={() => handleClear(type, true)}
                 >
                   Clear All
@@ -199,7 +199,7 @@ export const InputBox = ({
                 {(type === "AR" ? arrivalArray : burstTimeArray).length < 10 ? (
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary input-box-btn"
                     onClick={() =>
                       handleAddTime(
                         type,
@@ -222,7 +222,7 @@ export const InputBox = ({
                 )}
                 <button
                   type="button"
-                  className="btn btn-warning"
+                  className="btn btn-warning input-box-btn"
                   onClick={() => handleClear(type)}
                 >
                   Clear{" "}
@@ -235,7 +235,7 @@ export const InputBox = ({
                 </button>
                 <button
                   type="button"
-                  className="btn btn-danger"
+                  className="btn btn-danger input-box-btn"
                   onClick={() => handleClear(type, true)}
                 >
                   Clear All
