@@ -26,7 +26,7 @@
 }
 
 .add-method-container input {
-    margin-right: 6px;
+  margin-right: 6px;
 }
 
 .individual-input {
@@ -34,8 +34,48 @@
   flex-direction: column;
 }
 
+.individual-input input[type="number"] {
+  width: 20%;
+}
+
+.individual-input-inner {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .text-box {
   padding: 4px;
   margin-right: 5px;
 }
+
+.icon-class {
+  width: 24px;
+  height: 24px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px); /* Smooth upward movement */
+  background-color: #8e44ad; /* Transition to a lighter purple */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Highlighted shadow */
+}
+
+button:active {
+  transform: translateY(0); /* Reset the position on click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Lower shadow on click */
+}
+
 

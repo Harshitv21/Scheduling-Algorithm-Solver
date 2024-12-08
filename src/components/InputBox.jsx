@@ -99,7 +99,10 @@ export const InputBox = ({
             value="INDI"
             onChange={() => setCurrentInputMethod("INDI")}
           />
-          <label htmlFor="radioValueIndividual">Add individually <img src="Individual icon.svg" style={{width: "24px", height: "24px"}} /></label>
+          <label htmlFor="radioValueIndividual">
+            Add individually{" "}
+            <img src="Individual icon.svg" className="icon-class" />
+          </label>
         </div>
 
         <div>
@@ -111,7 +114,9 @@ export const InputBox = ({
             onChange={() => setCurrentInputMethod("BULK")}
             defaultChecked
           />
-          <label htmlFor="radioValueBulk">Add in bulk <img src="Bulk icon.svg" style={{width: "24px", height: "24px"}} /></label>
+          <label htmlFor="radioValueBulk">
+            Add in bulk <img src="Bulk icon.svg" className="icon-class" />
+          </label>
         </div>
       </div>
 
@@ -138,7 +143,13 @@ export const InputBox = ({
                     )
                   }
                 >
-                  Add
+                  Add{" "}
+                  <img
+                    src="Add icon.svg"
+                    className="icon-class"
+                    alt="Add icon"
+                    style={{ marginLeft: "5px" }}
+                  />
                 </button>
                 <button
                   type="button"
@@ -146,6 +157,12 @@ export const InputBox = ({
                   onClick={() => handleClear(type)}
                 >
                   Clear
+                  <img
+                    src="Clear icon.svg"
+                    className="icon-class"
+                    alt="Clear icon"
+                    style={{ marginLeft: "5px" }}
+                  />
                 </button>
                 <button
                   type="button"
@@ -153,23 +170,31 @@ export const InputBox = ({
                   onClick={() => handleClear(type, true)}
                 >
                   Clear All
+                  <img
+                    src="Clear all icon.svg"
+                    className="icon-class"
+                    alt="Clear all icon"
+                    style={{ marginLeft: "5px" }}
+                  />
                 </button>
               </div>
             </div>
           ))
         : ["AR", "BT"].map((type) => (
             <div key={type} className="individual-input">
-              <label htmlFor={type} className="form-label">
-                {type === "AR" ? "Arrival times" : "Burst times"}
-              </label>{" "}
-              <input
-                className="text-box"
-                type="number"
-                id={type}
-                min={0}
-                max={99}
-                defaultValue={0}
-              />
+              <div className="individual-input-inner">
+                <label htmlFor={type} className="form-label">
+                  {type === "AR" ? "Arrival times" : "Burst times"}
+                </label>{" "}
+                <input
+                  className="text-box"
+                  type="number"
+                  id={type}
+                  min={0}
+                  max={99}
+                  defaultValue={0}
+                />
+              </div>
               <div className="button-container">
                 {(type === "AR" ? arrivalArray : burstTimeArray).length < 10 ? (
                   <button
@@ -182,7 +207,13 @@ export const InputBox = ({
                       )
                     }
                   >
-                    Add
+                    Add{" "}
+                    <img
+                      src="Add icon.svg"
+                      className="icon-class"
+                      alt="Add icon"
+                      style={{ marginLeft: "5px" }}
+                    />
                   </button>
                 ) : (
                   <button className="btn btn-primary" disabled>
@@ -194,7 +225,13 @@ export const InputBox = ({
                   className="btn btn-warning"
                   onClick={() => handleClear(type)}
                 >
-                  Clear
+                  Clear{" "}
+                  <img
+                    src="Clear icon.svg"
+                    className="icon-class"
+                    alt="Clear icon"
+                    style={{ marginLeft: "5px" }}
+                  />
                 </button>
                 <button
                   type="button"
@@ -202,6 +239,12 @@ export const InputBox = ({
                   onClick={() => handleClear(type, true)}
                 >
                   Clear All
+                  <img
+                    src="Clear all icon.svg"
+                    className="icon-class"
+                    alt="Clear all icon"
+                    style={{ marginLeft: "5px" }}
+                  />
                 </button>
               </div>
             </div>
