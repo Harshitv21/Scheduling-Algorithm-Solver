@@ -117,7 +117,7 @@ export const InputBox = ({
 
       {currentInputMethod === "BULK"
         ? ["AR", "BT"].map((type) => (
-            <div key={type}>
+            <div key={type} className="individual-input">
               <label htmlFor={`Bulk${type}`} className="form-label">
                 {type === "AR" ? "Arrival times" : "Burst times"}
               </label>
@@ -158,20 +158,18 @@ export const InputBox = ({
             </div>
           ))
         : ["AR", "BT"].map((type) => (
-            <div className="individual-input" key={type}>
-              <div>
-                <label htmlFor={type} className="form-label">
-                  {type === "AR" ? "Arrival times" : "Burst times"}
-                </label>
-                <input
-                  className="text-box"
-                  type="number"
-                  id={type}
-                  min={0}
-                  max={99}
-                  defaultValue={0}
-                />
-              </div>
+            <div key={type} className="individual-input">
+              <label htmlFor={type} className="form-label">
+                {type === "AR" ? "Arrival times" : "Burst times"}
+              </label>{" "}
+              <input
+                className="text-box"
+                type="number"
+                id={type}
+                min={0}
+                max={99}
+                defaultValue={0}
+              />
               <div className="button-container">
                 {(type === "AR" ? arrivalArray : burstTimeArray).length < 10 ? (
                   <button
