@@ -33,7 +33,7 @@ export const Input = () => {
   return (
     <>
       <div className="input-heading">
-        <h3>Select your algorithm 🤔</h3>
+        <h3>Select your algorithm <img src="Algorithm icon.svg" style={{width: "32px", height: "32px"}} /></h3>
       </div>
 
       <div className="algo-radio-container">

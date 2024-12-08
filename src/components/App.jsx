@@ -2,6 +2,7 @@
 import "../styles/App.css";
 import { Header } from "./Header";
 import { Input } from "./Input";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </div>
       <div>
         <Input />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );

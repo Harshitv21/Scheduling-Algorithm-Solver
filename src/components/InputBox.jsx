@@ -99,7 +99,7 @@ export const InputBox = ({
             value="INDI"
             onChange={() => setCurrentInputMethod("INDI")}
           />
-          <label htmlFor="radioValueIndividual">Add individually</label>
+          <label htmlFor="radioValueIndividual">Add individually <img src="Individual icon.svg" style={{width: "24px", height: "24px"}} /></label>
         </div>
 
         <div>
@@ -111,7 +111,7 @@ export const InputBox = ({
             onChange={() => setCurrentInputMethod("BULK")}
             defaultChecked
           />
-          <label htmlFor="radioValueBulk">Add in bulk</label>
+          <label htmlFor="radioValueBulk">Add in bulk <img src="Bulk icon.svg" style={{width: "24px", height: "24px"}} /></label>
         </div>
       </div>
 

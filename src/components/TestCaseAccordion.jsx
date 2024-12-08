@@ -12,7 +12,13 @@ export const TestCaseAccordion = ({ arrivalTime, burstTime, timeQuantum }) => {
   return (
     <div className="accordion-container">
       <div className="accordion-inner-container" onClick={toggleAccordion}>
-        <span className="accordion-header">Sample Test Cases 🧪</span>
+        <span className="accordion-header">
+          Sample Test Cases{" "}
+          <img
+            src="Testing icon.svg"
+            style={{ width: "24px", height: "24px" }}
+          />
+        </span>
         <span>{isOpen ? "▲" : "▼"}</span>
       </div>
 
